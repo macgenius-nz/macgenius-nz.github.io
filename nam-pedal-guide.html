@@ -1,0 +1,219 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>NAM Pedal Guide — macgenius</title>
+  <meta name="description" content="User guide for NAM Pedalboard — scenes, pedals, EQ, effects, and troubleshooting.">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="icon" href="assets/favicon.ico" sizes="48x48 32x32 24x24 16x16" type="image/x-icon">
+</head>
+<body>
+  <header class="site-header">
+    <div class="wrap">
+      <a class="brand" href="index.html" aria-label="macgenius home">
+        <img class="brand-logo" src="assets/macgenius-logo-white.png" width="124" height="51" alt="MacGenius">
+      </a>
+      <nav class="nav">
+        <a href="index.html">Home</a>
+        <a href="support.html">Support</a>
+        <a href="privacy.html">Privacy</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="page">
+    <article class="doc">
+      <h1>NAM Pedal Guide</h1>
+      <p class="muted">User guide for the NAM Pedalboard standalone app.</p>
+
+      <h2>Quick Start</h2>
+      <p>On first launch, NAM Pedalboard loads the bundled <code>Foundation Clean.nam</code> model and selects the <code>Foundation Clean</code> scene.</p>
+      <p>Basic setup:</p>
+      <ul>
+        <li>Set your audio device in the settings cog at the top right.</li>
+        <li>Plug in your guitar and set <code>GLOBAL IN</code> so the app stays clean and controlled.</li>
+        <li>Load a NAM with <code>Load NAM</code> or browse Tone3000.</li>
+        <li>Load an IR if your NAM is an amp-only capture.</li>
+        <li>Pick a scene and play.</li>
+      </ul>
+      <p>Useful defaults:</p>
+      <ul>
+        <li><code>Foundation Clean</code> is the main startup scene.</li>
+        <li><code>Clear All</code> resets the app back to <code>Foundation Clean</code> and clears the current IR.</li>
+      </ul>
+
+      <h2>Scenes</h2>
+      <p>Scenes are complete snapshots of the pedalboard.</p>
+      <p>Factory scenes:</p>
+      <ul>
+        <li><code>Foundation Clean</code></li>
+        <li><code>Secret Slap Clean</code></li>
+        <li><code>BB Edge Rhythm</code></li>
+        <li><code>Funk Swirl</code></li>
+        <li><code>Continuum</code></li>
+        <li><code>Lead Push</code></li>
+      </ul>
+      <p>User scenes:</p>
+      <ul>
+        <li>You have user scene slots for your own sounds.</li>
+        <li>Select a user slot, then press <code>Save</code> to store the current board.</li>
+        <li><code>Rename</code> changes the selected user scene name.</li>
+        <li><code>Delete</code> clears the selected user scene slot.</li>
+      </ul>
+      <p>What a scene stores:</p>
+      <ul>
+        <li>Pedal on/off states</li>
+        <li>Pedal knob values</li>
+        <li>EQ settings</li>
+        <li>Trem/reverb/delay settings</li>
+        <li>Drive order</li>
+        <li>Voicing settings</li>
+        <li>Persistent scene output level</li>
+      </ul>
+      <p>What a scene does <em>not</em> store:</p>
+      <ul>
+        <li>Temporary <code>Match</code> offsets unless you explicitly save them</li>
+        <li>Global device setup</li>
+        <li><code>GLOBAL IN</code> / <code>GLOBAL OUT</code></li>
+      </ul>
+
+      <h2>Models and IRs</h2>
+      <p><code>Load NAM</code> loads a <code>.nam</code> model.</p>
+      <p>Use an IR when:</p>
+      <ul>
+        <li>the NAM is an amp-only capture</li>
+        <li>you want to pair the amp with a different speaker/cabinet sound</li>
+      </ul>
+      <p>You may not need an IR when:</p>
+      <ul>
+        <li>the NAM is a full-rig capture</li>
+        <li>the cab/speaker sound is already baked into the model</li>
+      </ul>
+      <p>If the NAM already sounds complete on its own, it is probably full-rig. If it sounds direct or unfinished, it probably wants an IR.</p>
+
+      <h2>Header and Global Controls</h2>
+      <p>Top bar controls: <code>Load NAM</code>, <code>Tone3000</code>, <code>Load IR</code>, <code>Clear All</code>, <code>TUNER</code>, <code>STEREO</code>, <code>PHONES</code>, settings cog.</p>
+      <p>Global controls:</p>
+      <ul>
+        <li><code>GLOBAL IN</code> — sets how hard your guitar/interface hits the pedalboard. Treat it as your instrument calibration control, not a scene level.</li>
+        <li><code>GLOBAL OUT</code> — sets final output level. Treat it as your monitor/recording level.</li>
+      </ul>
+
+      <h3>Calibration (Cal)</h3>
+      <p>The header shows the current model's auto-level offset, e.g. <code>Cal +3.2 dB</code>. NAM models vary widely in output level — Cal measures the model and applies a gain offset automatically so switching models doesn't surprise you volume-wise. Toggle it in the settings cog menu.</p>
+
+      <h3>PHONES</h3>
+      <p>Activates headphone-optimised processing. Use it when listening on headphones rather than monitors or an amp.</p>
+
+      <h3>STEREO and Ø B</h3>
+      <p><code>STEREO</code> activates biamp mode, routing the signal to a stereo pair with separate processing. <code>Ø B</code> flips the phase of the right channel — useful for aligning phase in biamp mode or checking mono compatibility.</p>
+
+      <h2>Pedals</h2>
+
+      <h3>Comp</h3>
+      <p>A musical guitar compressor. Controls: <code>Sustain</code>, <code>Blend</code>, <code>Level</code>. Best for clean scenes, subtle bloom before the Boost, or evening out attack without getting squashy.</p>
+
+      <h3>Boost</h3>
+      <p>Clean boost or front-end push. Controls: <code>Boost</code>, <code>Vol</code>. Use it to wake up a clean sound, add edge before the NAM, or push BB or Gold Drive.</p>
+
+      <h3>BB</h3>
+      <p>The warmer, softer low-gain drive. Controls: <code>Gain</code>, <code>Tone</code>, <code>Vol</code>. Character: rounder, thicker, more amp-like.</p>
+
+      <h3>Gold Drive</h3>
+      <p>The tighter, more articulate low-gain drive. Controls: <code>Gain</code>, <code>Treble</code>, <code>Out</code>. Character: clearer, tighter, more forward.</p>
+
+      <h3>Drive Order</h3>
+      <p>The <code>DRIVE</code> tile switches the order of BB and Gold Drive. Use BB after Gold Drive for softer edge, or Gold Drive after BB for more focused cut.</p>
+
+      <h3>Chorus</h3>
+      <p>Warm stereo chorus. Controls: <code>Rate</code>, <code>Depth</code>. Subtle stereo spread at low depth, more pronounced shimmer higher up. Good for adding movement to clean tones or layering under reverb.</p>
+
+      <h3>Delay</h3>
+      <p>Analogue-voiced echo for slap, space, and halo. Controls: <code>Delay</code>, <code>Fdbk</code>, <code>Mix</code>.</p>
+
+      <h3>Trem / Reverb</h3>
+      <p><code>TremVerb</code> combines tremolo and reverb in one section.</p>
+      <p>Tremolo: <code>Rate</code>, <code>Depth</code>, and three mode buttons — Tube, Photocell, Harmonic.</p>
+      <p>Reverb: <code>Decay</code>, <code>Mix</code>, <code>Tone</code>, and three algorithms — Plate, Hall, Spring.</p>
+
+      <h3>Voicing</h3>
+      <p>Shapes the finished tone after the cabinet stage.</p>
+      <ul>
+        <li><code>Sweeten</code> — harmonic gloss and tonal bloom</li>
+        <li><code>Deep</code> — thickens the low-end foundation</li>
+        <li><code>Bright</code> — opens up the top-end air</li>
+      </ul>
+
+      <h3>Cab Voice</h3>
+      <p>Adds cabinet character on top of your IR — or instead of one.</p>
+      <ul>
+        <li><code>Flat</code> — no colouration</li>
+        <li><code>1x12</code> — open-back, looser and more airy</li>
+        <li><code>2x12</code> — semi-open, balanced and versatile</li>
+        <li><code>4x12</code> — closed-back, tighter and more focused</li>
+      </ul>
+      <p>Pair with <code>Deep</code> and <code>Bright</code> to fine-tune low-end weight and top-end openness.</p>
+
+      <h2>EQ</h2>
+      <p>Your main voicing section, not a generic utility EQ. Bands: <code>150 Hz</code>, <code>425 Hz</code>, <code>1.8k</code>, <code>4.8k</code>, <code>Master</code>.</p>
+      <p>Use it to add body, reduce poke, add shimmer, or fine-tune scene balance. <code>Post-IR</code> is the main finishing position for most players.</p>
+
+      <h2>Match / Loudness</h2>
+      <p>Use <code>Match</code> to level-balance scenes so switching doesn't catch you out volume-wise.</p>
+      <ol>
+        <li>Select the reference scene and press <code>Set Ref</code>.</li>
+        <li>Play — the app captures the next active phrase.</li>
+        <li>Switch to the target scene and press <code>Apply</code>.</li>
+        <li>Play again — the app calculates a temporary offset.</li>
+        <li>Press <code>Save</code> to commit the offset into the scene permanently.</li>
+      </ol>
+      <p><code>Match</code> is temporary until you press <code>Save</code>. <code>Reset</code> clears the temporary state.</p>
+
+      <h2>Tone3000</h2>
+      <p>Browse and load NAM models from inside the app — search by amp type, browse featured tones, connect to your Tone3000 account. If you just want local files, ignore it and use <code>Load NAM</code>.</p>
+
+      <h2>Troubleshooting</h2>
+
+      <h3>Sounds too quiet</h3>
+      <ul>
+        <li>The NAM itself may be quiet</li>
+        <li>Check <code>GLOBAL OUT</code></li>
+        <li>Check the selected scene output level</li>
+        <li>You may have loaded an amp-only NAM without an IR</li>
+      </ul>
+
+      <h3>Sounds harsh</h3>
+      <ul>
+        <li>Lower <code>GLOBAL IN</code></li>
+        <li>Reduce drive pedal output</li>
+        <li>Lower <code>Sweeten</code></li>
+        <li>Reduce <code>4.8k</code></li>
+        <li>Use less <code>Bright</code></li>
+      </ul>
+
+      <h3>One scene is louder than another</h3>
+      <p>Use the Match workflow — <code>Set Ref</code>, <code>Apply</code>, then <code>Save</code>.</p>
+
+      <h3>Clean tones feel too stiff</h3>
+      <ul>
+        <li>Turn <code>Comp</code> on</li>
+        <li>A little <code>Boost</code></li>
+        <li>A little <code>Sweeten</code></li>
+        <li>A touch more <code>425 Hz</code></li>
+      </ul>
+    </article>
+  </main>
+
+  <footer class="footer">
+    <div class="wrap">
+      <div>© macgenius</div>
+      <div class="footer-links">
+        <a href="index.html">Home</a>
+        <a href="support.html">Support</a>
+        <a href="privacy.html">Privacy Policy</a>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
