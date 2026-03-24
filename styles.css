@@ -56,14 +56,10 @@ a { color: inherit; }
   letter-spacing: 0.08em;
 }
 
-.brand-mark {
-  width: 24px;
-  height: 24px;
-  border-radius: 8px;
-  background:
-    radial-gradient(circle at 55% 38%, #41ff68 0 10%, transparent 11%),
-    linear-gradient(180deg, #2d7dff, #225bdb 35%, #161a27 35%, #111521);
-  box-shadow: inset 0 0 0 1px rgba(255,255,255,0.12);
+.brand-logo {
+  display: block;
+  width: auto;
+  height: 36px;
 }
 
 .nav {
