@@ -337,10 +337,39 @@ h1 {
   padding: 14px;
 }
 
+.hero-secondary {
+  padding-top: 30px;
+}
+
+.dot-orange {
+  background: var(--orange);
+  box-shadow: 0 0 12px rgba(255, 155, 56, 0.8);
+}
+
+.btn-primary-orange {
+  background: linear-gradient(180deg, #ffaa45, #f08820);
+  color: #1a0e00;
+  box-shadow: 0 12px 28px rgba(255, 155, 56, 0.35);
+}
+
+.features-4 {
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.product-divider {
+  padding: 10px 0 6px;
+}
+
+.product-divider-line {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1) 20%, rgba(255,255,255,0.1) 80%, transparent);
+}
+
 @media (max-width: 900px) {
   .hero-grid,
   .gallery,
   .features,
+  .features-4,
   .permissions {
     grid-template-columns: 1fr;
   }
