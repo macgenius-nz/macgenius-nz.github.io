@@ -334,6 +334,68 @@ h1 {
   padding: 14px;
 }
 
+.acknowledgements-doc {
+  background:
+    radial-gradient(720px 300px at 0% 0%, rgba(45,125,255,0.12), transparent 60%),
+    linear-gradient(180deg, rgba(255,255,255,0.028), rgba(255,255,255,0.01));
+}
+
+.ack-hero {
+  margin-bottom: 20px;
+}
+
+.ack-kicker {
+  margin: 0 0 10px;
+  color: #c8d4f8;
+  font-size: 13px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.ack-lead {
+  margin: 0;
+  color: #dce4f8;
+  font-size: 17px;
+  max-width: 54ch;
+}
+
+.ack-quote {
+  margin: 20px 0 24px;
+  padding: 18px 18px 18px 22px;
+  border-left: 4px solid rgba(45,125,255,0.85);
+  border-radius: 16px;
+  background: linear-gradient(180deg, rgba(45,125,255,0.12), rgba(255,255,255,0.02));
+}
+
+.ack-quote p {
+  margin: 0;
+  font-size: 16px;
+}
+
+.ack-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 14px;
+  margin: 18px 0 8px;
+}
+
+.ack-card {
+  background: linear-gradient(180deg, var(--panel), #0f121d);
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  padding: 16px;
+}
+
+.ack-card h2 {
+  margin: 0 0 8px;
+  font-size: 18px;
+}
+
+.ack-card p {
+  margin: 0;
+  color: var(--muted);
+}
+
 .hero-secondary {
   padding-top: 30px;
 }
@@ -367,7 +429,8 @@ h1 {
   .gallery,
   .features,
   .features-4,
-  .permissions {
+  .permissions,
+  .ack-grid {
     grid-template-columns: 1fr;
   }
 
