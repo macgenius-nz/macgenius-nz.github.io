@@ -3,10 +3,162 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>NAM Pedal Guide — macgenius</title>
-  <meta name="description" content="User guide for NAM Pedalboard — scenes, pedals, EQ, effects, and troubleshooting.">
+  <title>NAM Pedalboard User Manual - macgenius</title>
+  <meta name="description" content="NAM Pedalboard user manual covering quick start, scenes, pedals, EQ, cabs, settings, Tone3000, and troubleshooting.">
   <link rel="stylesheet" href="styles.css">
   <link rel="icon" href="assets/favicon.ico" sizes="48x48 32x32 24x24 16x16" type="image/x-icon">
+  <style>
+    .manual-hero {
+      display: grid;
+      gap: 16px;
+      margin-bottom: 22px;
+      padding: 24px;
+      border-radius: 22px;
+      background: linear-gradient(180deg, rgba(45, 125, 255, 0.14), rgba(45, 125, 255, 0.05));
+      border: 1px solid rgba(45, 125, 255, 0.2);
+    }
+
+    .manual-hero p {
+      margin: 0;
+      color: #dbe3f7;
+      max-width: 62ch;
+    }
+
+    .manual-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .manual-kicker {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: #c8d4f8;
+      font-size: 13px;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 999px;
+      padding: 7px 12px;
+    }
+
+    .manual-nav {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 10px;
+      margin: 0 0 22px;
+      padding: 0;
+      list-style: none;
+    }
+
+    .manual-nav a {
+      display: block;
+      height: 100%;
+      padding: 12px 14px;
+      text-decoration: none;
+      color: #eef2ff;
+      border-radius: 14px;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.035), rgba(255, 255, 255, 0.015));
+    }
+
+    .manual-nav a span {
+      display: block;
+      margin-top: 4px;
+      color: #a9b2c7;
+      font-size: 13px;
+    }
+
+    .manual-section {
+      padding-top: 8px;
+      border-top: 1px solid rgba(255, 255, 255, 0.06);
+    }
+
+    .manual-section:first-of-type {
+      border-top: 0;
+      padding-top: 0;
+    }
+
+    .section-heading {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .anchor-link {
+      color: #8fb7ff;
+      text-decoration: none;
+      font-size: 15px;
+      opacity: 0.85;
+    }
+
+    .anchor-link:hover {
+      opacity: 1;
+    }
+
+    .doc table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 12px 0 16px;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 14px;
+      overflow: hidden;
+      background: rgba(255, 255, 255, 0.02);
+    }
+
+    .doc th,
+    .doc td {
+      padding: 10px 12px;
+      text-align: left;
+      vertical-align: top;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    }
+
+    .doc th {
+      color: #eef2ff;
+      background: rgba(255, 255, 255, 0.03);
+      font-size: 14px;
+    }
+
+    .doc tr:last-child td {
+      border-bottom: 0;
+    }
+
+    .doc ol {
+      padding-left: 20px;
+    }
+
+    .doc li + li {
+      margin-top: 6px;
+    }
+
+    .doc p + ul,
+    .doc p + ol {
+      margin-top: -2px;
+    }
+
+    .mini-callout {
+      margin: 14px 0 16px;
+      padding: 14px 16px;
+      border-radius: 16px;
+      background: linear-gradient(180deg, rgba(255, 155, 56, 0.09), rgba(255, 155, 56, 0.03));
+      border: 1px solid rgba(255, 155, 56, 0.2);
+      color: #e9eefb;
+    }
+
+    .manual-footer-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 26px;
+    }
+
+    @media (max-width: 900px) {
+      .manual-nav {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
 </head>
 <body>
   <header class="site-header">
@@ -24,195 +176,560 @@
 
   <main class="page">
     <article class="doc">
-      <h1>NAM Pedal Guide</h1>
-      <p class="muted">User guide for the NAM Pedalboard standalone app.</p>
+      <section class="manual-hero">
+        <div class="manual-kicker"><span class="dot"></span> NAM Pedalboard standalone guide</div>
+        <div>
+          <h1>NAM Pedalboard User Manual</h1>
+          <p>Everything you need to get from first launch to dialed-in scenes: setup, signal flow, pedals, cabs, settings, Tone3000, and troubleshooting.</p>
+        </div>
+        <div class="manual-actions">
+          <a class="btn btn-primary" href="#quick-start">Start Here</a>
+          <a class="btn btn-secondary" href="support.html">Support</a>
+        </div>
+      </section>
 
-      <h2>Quick Start</h2>
-      <p>On first launch, NAM Pedalboard loads the bundled <code>Foundation Clean.nam</code> model and selects the <code>Foundation Clean</code> scene.</p>
-      <p>Basic setup:</p>
-      <ul>
-        <li>Set your audio device in the settings cog at the top right.</li>
-        <li>Plug in your guitar and set <code>GLOBAL IN</code> so the app stays clean and controlled.</li>
-        <li>Pick a scene and play.</li>
-        <li>Play! That's the whole point of this...</li>
-      </ul> 
-      <p>Advanced (well, there goes practice...) features:</p>
-      <ul>
-        <li>New to NAM? let us connect you to Tone3000 (the NAM Mothership). Pick a "Full Rig" version of your favorite amp and let the fun begin!</li>
-        <li>Have NAM's already? - Load a NAM with <code>Load NAM</code></li>
-        <li>Finally, if you must ;-) load an IR. I'll show you how deep the rabbit-hole goes...</li>
-      </ul>
-      <p>Useful defaults:</p>
-      <ul>
-        <li><code>Foundation Clean</code> is the main startup scene.</li>
-        <li><code>Clear All</code> resets the app back to <code>Foundation Clean</code> and clears the current IR.</li>
-      </ul>
-
-      <h2>Scenes</h2>
-      <p>Scenes are complete snapshots of the pedalboard.</p>
-      <p>Factory scenes:</p>
-      <ul>
-        <li><code>Foundation Clean</code></li>
-        <li><code>Secret Slap Clean</code></li>
-        <li><code>BB Edge Rhythm</code></li>
-        <li><code>Funk Swirl</code></li>
-        <li><code>Continuum</code></li>
-        <li><code>Lead Push</code></li>
-      </ul>
-      <p>User scenes:</p>
-      <ul>
-        <li>You have user scene slots for your own sounds.</li>
-        <li>Select a user slot, then press <code>Save</code> to store the current board.</li>
-        <li><code>Rename</code> changes the selected user scene name.</li>
-        <li><code>Delete</code> clears the selected user scene slot.</li>
-      </ul>
-      <p>What a scene stores:</p>
-      <ul>
-        <li>Pedal on/off states</li>
-        <li>Pedal knob values</li>
-        <li>EQ settings</li>
-        <li>Trem/reverb/delay settings</li>
-        <li>Drive order</li>
-        <li>Voicing settings</li>
-        <li>Persistent scene output level</li>
-      </ul>
-      <p>What a scene does <em>not</em> store:</p>
-      <ul>
-        <li>Temporary <code>Match</code> offsets unless you explicitly save them</li>
-        <li>Global device setup</li>
-        <li><code>GLOBAL IN</code> / <code>GLOBAL OUT</code></li>
+      <ul class="manual-nav">
+        <li><a href="#quick-start">Quick Start<span>Get playing fast.</span></a></li>
+        <li><a href="#header-bar">Header Bar<span>Top controls and level knobs.</span></a></li>
+        <li><a href="#scenes">Scenes<span>Factory and user presets.</span></a></li>
+        <li><a href="#scene-matching">Scene Matching<span>Level-match two scenes.</span></a></li>
+        <li><a href="#pedals">Pedals<span>Compression, drives, chorus, delay, TremVerb.</span></a></li>
+        <li><a href="#eq">4-Band EQ<span>Shape the final tone.</span></a></li>
+        <li><a href="#ir-voice">IR Voice<span>Cab coloring in IR mode.</span></a></li>
+        <li><a href="#voicing">Voicing<span>Sweeten, Deep, Bright.</span></a></li>
+        <li><a href="#settings-menu">Settings Menu<span>Quick Start, gating, auto-level, diagnostics.</span></a></li>
+        <li><a href="#models-cabs">Models and Cabs<span>Amp-only vs full-rig, IRs, cab NAMs.</span></a></li>
+        <li><a href="#tuner">Tuner<span>Silent tuning workflow.</span></a></li>
+        <li><a href="#stereo-and-phones">Stereo and Phones<span>Width and headphone mode.</span></a></li>
+        <li><a href="#startup-behavior">Startup Behavior<span>What loads and restores.</span></a></li>
+        <li><a href="#troubleshooting">Troubleshooting<span>Common fixes and tone tips.</span></a></li>
       </ul>
 
-      <h2>Models and IRs</h2>
-      <p><code>Load NAM</code> loads a <code>.nam</code> model.</p>
-      <p>Use an IR when:</p>
-      <ul>
-        <li>the NAM is an amp-only capture</li>
-        <li>you want to pair the amp with a different speaker/cabinet sound</li>
-      </ul>
-      <p>You may not need an IR when:</p>
-      <ul>
-        <li>the NAM is a full-rig capture</li>
-        <li>the cab/speaker sound is already baked into the model</li>
-      </ul>
-      <p>If the NAM already sounds complete on its own, it is probably full-rig. If it sounds direct or unfinished, it probably wants an IR.</p>
+      <section class="manual-section" id="quick-start">
+        <div class="section-heading">
+          <h2>Quick Start</h2>
+          <a class="anchor-link" href="#quick-start">#</a>
+        </div>
+        <p>NAM Pedalboard is a guitar amp modeler and effects pedalboard. On first launch it loads the bundled <strong>Foundation Clean</strong> model and scene - plug in and play.</p>
+        <ol>
+          <li><strong>Set your audio device</strong> - click the <code>Options</code> button (top-left) and choose your interface.</li>
+          <li><strong>Set your input level</strong> - adjust the <code>IN</code> knob (top-right) so your guitar signal is clean and controlled.</li>
+          <li><strong>Pick a scene</strong> - use the scene dropdown to explore different sounds.</li>
+          <li><strong>Load a model</strong> - press <code>Load NAM</code> for a local file, or <code>Tone3000</code> to browse and download models online.</li>
+          <li><strong>Load a cab</strong> - choose <code>Cab Type</code>:
+            <ul>
+              <li><code>IR</code> for a traditional impulse response</li>
+              <li><code>NAM</code> for a dynamic NAM speaker/cab capture</li>
+              <li><code>None</code> to bypass the cab stage</li>
+            </ul>
+            Then press <code>Load Cab</code>.
+          </li>
+        </ol>
+      </section>
 
-      <h2>Header and Global Controls</h2>
-      <p>Top bar controls: <code>Load NAM</code>, <code>Tone3000</code>, <code>Load IR</code>, <code>Clear All</code>, <code>TUNER</code>, <code>STEREO</code>, <code>PHONES</code>, settings cog.</p>
-      <p>Global controls:</p>
-      <ul>
-        <li><code>GLOBAL IN</code> — sets how hard your guitar/interface hits the pedalboard. Treat it as your instrument calibration control, not a scene level.</li>
-        <li><code>GLOBAL OUT</code> — sets final output level. Treat it as your monitor/recording level.</li>
-      </ul>
+      <section class="manual-section" id="header-bar">
+        <div class="section-heading">
+          <h2>The Header Bar</h2>
+          <a class="anchor-link" href="#header-bar">#</a>
+        </div>
+        <p>The header bar runs across the top of the window.</p>
 
-      <h3>Calibration (Cal)</h3>
-      <p>The header shows the current model's auto-level offset, e.g. <code>Cal +3.2 dB</code>. NAM models vary widely in output level — Cal measures the model and applies a gain offset automatically so switching models doesn't surprise you volume-wise. Toggle it in the settings cog menu.</p>
+        <h3 id="header-left-side">Left side <a class="anchor-link" href="#header-left-side">#</a></h3>
+        <table>
+          <thead>
+            <tr>
+              <th>Button</th>
+              <th>What it does</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td><code>Load NAM</code></td><td>Browse your computer for a <code>.nam</code> model file.</td></tr>
+            <tr><td><code>Tone3000</code></td><td>Browse and download models from the Tone3000 online library.</td></tr>
+            <tr><td><code>Load Cab</code></td><td>Load the currently selected cab type: either an IR or a cab NAM.</td></tr>
+            <tr><td><code>Clear Cab</code></td><td>Clear the current cab stage.</td></tr>
+            <tr><td><code>Clear All</code></td><td>Reset to startup state - reloads Foundation Clean and clears the current cab.</td></tr>
+            <tr><td><code>TUNER</code></td><td>Show or hide the on-screen tuner. Output is muted while active.</td></tr>
+            <tr><td><code>STEREO</code></td><td>Enable stereo widening for a bigger, more spacious sound.</td></tr>
+            <tr><td><code>PHONES</code></td><td>Headphone mode for headphone listening instead of monitors or an FRFR speaker.</td></tr>
+          </tbody>
+        </table>
 
-      <h3>PHONES</h3>
-      <p>Activates headphone-optimised processing. Use it when listening on headphones rather than monitors or an amp.</p>
+        <h3 id="header-center-display">Center display <a class="anchor-link" href="#header-center-display">#</a></h3>
+        <ul>
+          <li><strong>Model loaded</strong> - shows the name of the current NAM model.</li>
+          <li><strong>Cal</strong> - shows the automatic loudness calibration applied to the model, for example <code>Cal -1.1 dB</code>.</li>
+          <li><strong>Cab loaded</strong> - shows the current cab file name for <code>IR</code> or <code>NAM</code>, or <code>None</code> if the cab stage is bypassed.</li>
+          <li><strong>Cab Type</strong> - switches the cab stage between <code>IR</code>, <code>NAM</code>, and <code>None</code>.</li>
+        </ul>
 
-      <h3>STEREO and Ø B</h3>
-      <p><code>STEREO</code> activates biamp mode, routing the signal to a stereo pair with separate processing. <code>Ø B</code> flips the phase of the right channel — useful for aligning phase in biamp mode or checking mono compatibility.</p>
+        <h3 id="header-right-side-level-knobs">Right side - level knobs <a class="anchor-link" href="#header-right-side-level-knobs">#</a></h3>
+        <table>
+          <thead>
+            <tr>
+              <th>Knob</th>
+              <th>What it does</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td><code>AMP</code></td><td>Fine output trim for the current amp model. Use this after auto-level if a model still wants a little more or less level.</td></tr>
+            <tr><td><code>CAB</code></td><td>Cab-stage loudness trim. Works for both <code>IR</code> and <code>NAM</code>, and is disabled when <code>Cab Type = None</code>.</td></tr>
+            <tr><td><code>IN</code></td><td>Global input level. Set this once to match your guitar and interface - do not touch it per scene.</td></tr>
+            <tr><td><code>OUT</code></td><td>Global output level. Controls your final monitoring or recording volume.</td></tr>
+          </tbody>
+        </table>
 
-      <h2>Pedals</h2>
+        <h3 id="settings-gear">Settings gear <a class="anchor-link" href="#settings-gear">#</a></h3>
+        <p>The gear icon (top-right) opens the settings menu. See <a href="#settings-menu">Settings Menu</a>.</p>
+      </section>
 
-      <h3>Comp</h3>
-      <p>A musical guitar compressor. Controls: <code>Sustain</code>, <code>Blend</code>, <code>Level</code>. Best for clean scenes, subtle bloom before the Boost, or evening out attack without getting squashy.</p>
+      <section class="manual-section" id="scenes">
+        <div class="section-heading">
+          <h2>Scenes</h2>
+          <a class="anchor-link" href="#scenes">#</a>
+        </div>
+        <p>Scenes are complete snapshots of your pedalboard. Switching scenes instantly recalls pedal settings, EQ, effects, drive order, and voicing.</p>
 
-      <h3>Boost</h3>
-      <p>Clean boost or front-end push. Controls: <code>Boost</code>, <code>Vol</code>. Use it to wake up a clean sound, add edge before the NAM, or push BB or Gold Drive.</p>
+        <h3 id="factory-scenes">Factory scenes <a class="anchor-link" href="#factory-scenes">#</a></h3>
+        <table>
+          <thead>
+            <tr>
+              <th>Scene</th>
+              <th>Character</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>Foundation Clean</td><td>Light compression, subtle reverb - the default starting point.</td></tr>
+            <tr><td>Secret Slap Clean</td><td>Firmer compression with a short slapback delay and gentle chorus.</td></tr>
+            <tr><td>BB Edge Rhythm</td><td>Blues Breaker on for warm edge-of-breakup rhythm.</td></tr>
+            <tr><td>Funk Swirl</td><td>Tight compression, harmonic tremolo, chorus, and short delay.</td></tr>
+            <tr><td>Continuum</td><td>Smooth sustain with Klon, delay, and plate reverb.</td></tr>
+            <tr><td>Lead Push</td><td>Blues Breaker and Klon stacked for a singing lead tone.</td></tr>
+          </tbody>
+        </table>
 
-      <h3>BB</h3>
-      <p>The warmer, softer low-gain drive. Controls: <code>Gain</code>, <code>Tone</code>, <code>Vol</code>. Character: rounder, thicker, more amp-like.</p>
+        <h3 id="user-scenes">User scenes <a class="anchor-link" href="#user-scenes">#</a></h3>
+        <p>You have 8 user scene slots for your own sounds.</p>
+        <ul>
+          <li>Select a user slot from the dropdown, then press <strong>Save</strong> to store the current board.</li>
+          <li><strong>Rename</strong> changes the name of the selected user scene.</li>
+          <li><strong>Delete</strong> clears the selected user scene slot.</li>
+        </ul>
 
-      <h3>Gold Drive</h3>
-      <p>The tighter, more articulate low-gain drive. Controls: <code>Gain</code>, <code>Treble</code>, <code>Out</code>. Character: clearer, tighter, more forward.</p>
+        <h3 id="what-a-scene-stores">What a scene stores <a class="anchor-link" href="#what-a-scene-stores">#</a></h3>
+        <ul>
+          <li>All pedal on or off states and knob positions</li>
+          <li>EQ settings, including on or off state, preset, band values, and position</li>
+          <li>Tremolo and reverb settings, including modes</li>
+          <li>Delay and chorus settings</li>
+          <li>Drive order</li>
+          <li>Voicing: Sweeten, Deep, Bright</li>
+          <li>Persistent scene output level (<code>TRIM</code>)</li>
+        </ul>
 
-      <h3>Drive Order</h3>
-      <p>The <code>DRIVE</code> tile switches the order of BB and Gold Drive. Use BB after Gold Drive for softer edge, or Gold Drive after BB for more focused cut.</p>
+        <h3 id="what-a-scene-does-not-store">What a scene does not store <a class="anchor-link" href="#what-a-scene-does-not-store">#</a></h3>
+        <ul>
+          <li>Global <code>IN</code> and <code>OUT</code> levels</li>
+          <li>The loaded NAM model or IR</li>
+          <li>Temporary Match offsets until you explicitly save them</li>
+          <li>Settings menu preferences such as input gate and noise reduction</li>
+        </ul>
+      </section>
 
-      <h3>Chorus</h3>
-      <p>Warm stereo chorus. Controls: <code>Rate</code>, <code>Depth</code>. Subtle stereo spread at low depth, more pronounced shimmer higher up. Good for adding movement to clean tones or layering under reverb.</p>
+      <section class="manual-section" id="scene-matching">
+        <div class="section-heading">
+          <h2>Scene Matching</h2>
+          <a class="anchor-link" href="#scene-matching">#</a>
+        </div>
+        <p>Match lets you balance the loudness of two scenes so they sit at the same perceived volume.</p>
+        <h3 id="scene-matching-workflow">Workflow <a class="anchor-link" href="#scene-matching-workflow">#</a></h3>
+        <ol>
+          <li>Select your <strong>reference scene</strong>, the one that is already at the level you like.</li>
+          <li>Press <strong>Set Ref</strong>.</li>
+          <li>Play a phrase - the app listens and captures it automatically.</li>
+          <li>Switch to the <strong>target scene</strong>, the one you want to match.</li>
+          <li>Press <strong>Apply</strong>.</li>
+          <li>Play a similar phrase - the app captures it and calculates a loudness offset.</li>
+          <li>The button changes to <strong>Save</strong>. Press it to commit that offset into the scene's Trim knob.</li>
+        </ol>
+        <ul>
+          <li><strong>Reset</strong> clears the temporary match state without saving.</li>
+          <li>The <code>Match:</code> display below the buttons shows the current offset.</li>
+        </ul>
+      </section>
 
-      <h3>Delay</h3>
-      <p>Analogue-voiced echo for slap, space, and halo. Controls: <code>Delay</code>, <code>Fdbk</code>, <code>Mix</code>.</p>
+      <section class="manual-section" id="pedals">
+        <div class="section-heading">
+          <h2>Pedals</h2>
+          <a class="anchor-link" href="#pedals">#</a>
+        </div>
 
-      <h3>Trem / Reverb</h3>
-      <p><code>TremVerb</code> combines tremolo and reverb in one section.</p>
-      <p>Tremolo: <code>Rate</code>, <code>Depth</code>, and three mode buttons — Tube, Photocell, Harmonic.</p>
-      <p>Reverb: <code>Decay</code>, <code>Mix</code>, <code>Tone</code>, and three algorithms — Plate, Hall, Spring.</p>
+        <h3 id="pedal-comp">Comp <a class="anchor-link" href="#pedal-comp">#</a></h3>
+        <p>A musical guitar compressor - smooths your dynamics without squashing.</p>
+        <table>
+          <thead><tr><th>Knob</th><th>What it does</th></tr></thead>
+          <tbody>
+            <tr><td>Sustain</td><td>How much compression. Higher means more squash and sustain.</td></tr>
+            <tr><td>Blend</td><td>Mix of compressed and dry signal. Lower feels more natural.</td></tr>
+            <tr><td>Level</td><td>Output volume of the compressor.</td></tr>
+          </tbody>
+        </table>
+        <p>Best for clean scenes, subtle bloom before the boost, or evening out your attack.</p>
 
-      <h3>Voicing</h3>
-      <p>Shapes the finished tone after the cabinet stage.</p>
-      <ul>
-        <li><code>Sweeten</code> — harmonic gloss and tonal bloom</li>
-        <li><code>Deep</code> — thickens the low-end foundation</li>
-        <li><code>Bright</code> — opens up the top-end air</li>
-      </ul>
+        <h3 id="pedal-boost">Boost <a class="anchor-link" href="#pedal-boost">#</a></h3>
+        <p>A clean boost that wakes up your tone or pushes the drives harder.</p>
+        <table>
+          <thead><tr><th>Knob</th><th>What it does</th></tr></thead>
+          <tbody>
+            <tr><td>Boost</td><td>Amount of boost.</td></tr>
+            <tr><td>Vol</td><td>Output volume.</td></tr>
+          </tbody>
+        </table>
 
-      <h3>Cab Voice</h3>
-      <p>Adds cabinet character on top of your IR — or instead of one.</p>
-      <ul>
-        <li><code>Flat</code> — no colouration</li>
-        <li><code>1x12</code> — open-back, looser and more airy</li>
-        <li><code>2x12</code> — semi-open, balanced and versatile</li>
-        <li><code>4x12</code> — closed-back, tighter and more focused</li>
-      </ul>
-      <p>Pair with <code>Deep</code> and <code>Bright</code> to fine-tune low-end weight and top-end openness.</p>
+        <h3 id="pedal-bb">BB (Blues Breaker) <a class="anchor-link" href="#pedal-bb">#</a></h3>
+        <p>A warmer, softer low-gain overdrive. Rounder and more amp-like.</p>
+        <table>
+          <thead><tr><th>Knob</th><th>What it does</th></tr></thead>
+          <tbody>
+            <tr><td>Gain</td><td>Drive amount.</td></tr>
+            <tr><td>Tone</td><td>Brighter or darker.</td></tr>
+            <tr><td>Vol</td><td>Output volume.</td></tr>
+          </tbody>
+        </table>
 
-      <h2>EQ</h2>
-      <p>Your main voicing section, not a generic utility EQ. Bands: <code>150 Hz</code>, <code>425 Hz</code>, <code>1.8k</code>, <code>4.8k</code>, <code>Master</code>.</p>
-      <p>Use it to add body, reduce poke, add shimmer, or fine-tune scene balance. <code>Post-IR</code> is the main finishing position for most players.</p>
+        <h3 id="pedal-gold-drive">Gold Drive (Klon) <a class="anchor-link" href="#pedal-gold-drive">#</a></h3>
+        <p>A tighter, more articulate low-gain overdrive. Clearer and more forward.</p>
+        <table>
+          <thead><tr><th>Knob</th><th>What it does</th></tr></thead>
+          <tbody>
+            <tr><td>Gain</td><td>Drive amount.</td></tr>
+            <tr><td>Treble</td><td>High-end control.</td></tr>
+            <tr><td>Out</td><td>Output volume.</td></tr>
+          </tbody>
+        </table>
 
-      <h2>Match / Loudness</h2>
-      <p>Use <code>Match</code> to level-balance scenes so switching doesn't catch you out volume-wise.</p>
-      <ol>
-        <li>Select the reference scene and press <code>Set Ref</code>.</li>
-        <li>Play — the app captures the next active phrase.</li>
-        <li>Switch to the target scene and press <code>Apply</code>.</li>
-        <li>Play again — the app calculates a temporary offset.</li>
-        <li>Press <code>Save</code> to commit the offset into the scene permanently.</li>
-      </ol>
-      <p><code>Match</code> is temporary until you press <code>Save</code>. <code>Reset</code> clears the temporary state.</p>
+        <h3 id="pedal-drive-order">Drive Order <a class="anchor-link" href="#pedal-drive-order">#</a></h3>
+        <p>The drive order tile on the right side of the drive row switches the order of BB and Gold Drive in the signal chain.</p>
+        <ul>
+          <li><strong>BB &gt; KL</strong> - Blues Breaker feeds into Klon. Softer edge.</li>
+          <li><strong>KL &gt; BB</strong> - Klon feeds into Blues Breaker. More focused cut.</li>
+        </ul>
+        <p>Click the tile to toggle between the two.</p>
 
-      <h2>Tone3000</h2>
-      <p>Browse and load NAM models from inside the app — search by amp type, browse featured tones, connect to your Tone3000 account. If you just want local files, ignore it and use <code>Load NAM</code>.</p>
+        <h3 id="pedal-chorus">Chorus <a class="anchor-link" href="#pedal-chorus">#</a></h3>
+        <p>A stereo chorus for shimmer and width.</p>
+        <table>
+          <thead><tr><th>Knob</th><th>What it does</th></tr></thead>
+          <tbody>
+            <tr><td>Rate</td><td>Speed of the modulation.</td></tr>
+            <tr><td>Depth</td><td>Intensity of the effect.</td></tr>
+          </tbody>
+        </table>
 
-      <h2>Troubleshooting</h2>
+        <h3 id="pedal-delay">Delay <a class="anchor-link" href="#pedal-delay">#</a></h3>
+        <p>A polished short echo - great for slapback, space, and atmosphere.</p>
+        <table>
+          <thead><tr><th>Knob</th><th>What it does</th></tr></thead>
+          <tbody>
+            <tr><td>Delay</td><td>Echo time from short slapback to longer repeats.</td></tr>
+            <tr><td>Fdbk</td><td>Number of repeats.</td></tr>
+            <tr><td>Mix</td><td>Dry or wet blend.</td></tr>
+          </tbody>
+        </table>
 
-      <h3>Sounds too quiet</h3>
-      <ul>
-        <li>The NAM itself may be quiet</li>
-        <li>Check <code>GLOBAL OUT</code></li>
-        <li>Check the selected scene output level</li>
-        <li>You may have loaded an amp-only NAM without an IR</li>
-      </ul>
+        <h3 id="pedal-tremverb">TremVerb <a class="anchor-link" href="#pedal-tremverb">#</a></h3>
+        <p>Tremolo and reverb combined in one panel, each with independent bypass.</p>
+        <p><strong>Trem:</strong></p>
+        <table>
+          <thead><tr><th>Control</th><th>What it does</th></tr></thead>
+          <tbody>
+            <tr><td>Rate</td><td>Speed of the tremolo.</td></tr>
+            <tr><td>Depth</td><td>Intensity of the volume modulation.</td></tr>
+            <tr><td>Photocell / Harmonic / Tube</td><td>Tremolo character - smooth optical, swirly harmonic, or punchy tube.</td></tr>
+          </tbody>
+        </table>
+        <p><strong>Reverb:</strong></p>
+        <table>
+          <thead><tr><th>Control</th><th>What it does</th></tr></thead>
+          <tbody>
+            <tr><td>Decay</td><td>Length of the reverb tail.</td></tr>
+            <tr><td>Mix</td><td>Dry or wet blend.</td></tr>
+            <tr><td>Tone</td><td>Brightness of the reverb.</td></tr>
+            <tr><td>Plate / Hall / Spring</td><td>Reverb type - tight and clear, wide and ambient, or classic drip.</td></tr>
+          </tbody>
+        </table>
+      </section>
 
-      <h3>Sounds harsh</h3>
-      <ul>
-        <li>Lower <code>GLOBAL IN</code></li>
-        <li>Reduce drive pedal output</li>
-        <li>Lower <code>Sweeten</code></li>
-        <li>Reduce <code>4.8k</code></li>
-        <li>Use less <code>Bright</code></li>
-      </ul>
+      <section class="manual-section" id="eq">
+        <div class="section-heading">
+          <h2>4-Band EQ</h2>
+          <a class="anchor-link" href="#eq">#</a>
+        </div>
+        <p>The EQ is your main tone-shaping tool - use it to sculpt the character of each scene.</p>
 
-      <h3>One scene is louder than another</h3>
-      <p>Use the Match workflow — <code>Set Ref</code>, <code>Apply</code>, then <code>Save</code>.</p>
+        <h3 id="eq-controls">Controls <a class="anchor-link" href="#eq-controls">#</a></h3>
+        <ul>
+          <li><strong>EQ button</strong> - turns the EQ on or off.</li>
+          <li><strong>Reset</strong> - sets all bands back to 0 dB.</li>
+          <li><strong>Preset dropdown</strong> - choose a starting point:
+            <ul>
+              <li>Custom</li>
+              <li>Grav Clean</li>
+              <li>Dance Edge</li>
+              <li>Belief Attack</li>
+              <li>Vultures Funk Clean</li>
+              <li>Lead Push</li>
+              <li>MayerX Warm Dark</li>
+            </ul>
+          </li>
+          <li><strong>Position dropdown</strong> - where the EQ sits in the signal chain:
+            <ul>
+              <li><strong>Post-IR</strong> (recommended) - shapes the final tone after the amp and cab.</li>
+              <li><strong>Pre-NAM</strong> - shapes the tone before it hits the amp model.</li>
+            </ul>
+          </li>
+        </ul>
 
-      <h3>Clean tones feel too stiff</h3>
-      <ul>
-        <li>Turn <code>Comp</code> on</li>
-        <li>A little <code>Boost</code></li>
-        <li>A little <code>Sweeten</code></li>
-        <li>A touch more <code>425 Hz</code></li>
-      </ul>
+        <h3 id="eq-bands">Bands <a class="anchor-link" href="#eq-bands">#</a></h3>
+        <table>
+          <thead>
+            <tr>
+              <th>Band</th>
+              <th>Frequency</th>
+              <th>Range</th>
+              <th>Use it for</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>Low</td><td>150 Hz</td><td>&plusmn;20 dB</td><td>Body and weight.</td></tr>
+            <tr><td>Low-Mid</td><td>425 Hz</td><td>&plusmn;20 dB</td><td>Warmth or mud control.</td></tr>
+            <tr><td>High-Mid</td><td>1.8 kHz</td><td>&plusmn;20 dB</td><td>Presence and cut.</td></tr>
+            <tr><td>High</td><td>4.8 kHz</td><td>&plusmn;20 dB</td><td>Sparkle and air.</td></tr>
+            <tr><td>Master</td><td>-</td><td>&plusmn;10 dB</td><td>Overall EQ output level.</td></tr>
+          </tbody>
+        </table>
+        <p>Adjusting any band automatically switches the preset to <code>Custom</code>.</p>
+      </section>
+
+      <section class="manual-section" id="ir-voice">
+        <div class="section-heading">
+          <h2>IR Voice</h2>
+          <a class="anchor-link" href="#ir-voice">#</a>
+        </div>
+        <p>IR Voice adds speaker cabinet coloring on top of your loaded IR, or the default IR-style cab. It is only active when <code>Cab Type = IR</code>.</p>
+        <table>
+          <thead><tr><th>Mode</th><th>Character</th></tr></thead>
+          <tbody>
+            <tr><td>Flat</td><td>No coloring - pure IR or default cab sound.</td></tr>
+            <tr><td>1x12</td><td>Open-back single speaker - brighter, more present.</td></tr>
+            <tr><td>2x12</td><td>Balanced - a good middle ground.</td></tr>
+            <tr><td>4x12</td><td>Closed-back full stack - bigger low end, smoother highs.</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="manual-section" id="voicing">
+        <div class="section-heading">
+          <h2>Voicing</h2>
+          <a class="anchor-link" href="#voicing">#</a>
+        </div>
+        <p>The Voicing section adds a final layer of polish and character.</p>
+        <table>
+          <thead><tr><th>Control</th><th>What it does</th></tr></thead>
+          <tbody>
+            <tr><td>Sweeten</td><td>Adds smooth saturation and warmth. Turn it up for a more polished, finished sound.</td></tr>
+            <tr><td>Deep</td><td>Adds low-end foundation - thicker and fuller.</td></tr>
+            <tr><td>Bright</td><td>Adds high-end openness - more air and shimmer.</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="manual-section" id="settings-menu">
+        <div class="section-heading">
+          <h2>Settings Menu</h2>
+          <a class="anchor-link" href="#settings-menu">#</a>
+        </div>
+        <p>Click the <strong>gear icon</strong> in the top-right corner to open the settings menu.</p>
+
+        <h3 id="settings-show-quick-start-now">Show Quick Start now <a class="anchor-link" href="#settings-show-quick-start-now">#</a></h3>
+        <p>Reopens the Quick Start welcome banner with setup tips.</p>
+
+        <h3 id="settings-show-quick-start-on-launch">Show Quick Start on launch <a class="anchor-link" href="#settings-show-quick-start-on-launch">#</a></h3>
+        <p>When checked, the Quick Start banner appears automatically each time you open the app.</p>
+
+        <h3 id="settings-enable-debug-logging-console">Enable debug logging (console) <a class="anchor-link" href="#settings-enable-debug-logging-console">#</a></h3>
+        <p>Turns on diagnostic logging to the system console. Only useful for troubleshooting, so you can usually leave this off.</p>
+
+        <h3 id="settings-enable-amp-auto-level-nam-loudness">Enable amp auto-level (NAM loudness) <a class="anchor-link" href="#settings-enable-amp-auto-level-nam-loudness">#</a></h3>
+        <p>When enabled, the app automatically adjusts each model's output so that different NAMs play back at a consistent volume. The calibration value is shown in the header as <code>Cal</code>. Turn this off if you want the model's raw output level.</p>
+
+        <h3 id="settings-input-gate">Input gate <a class="anchor-link" href="#settings-input-gate">#</a></h3>
+        <p>A noise gate on your input signal. It reduces hum and buzz when you are not playing.</p>
+        <table>
+          <thead><tr><th>Setting</th><th>Strength</th></tr></thead>
+          <tbody>
+            <tr><td>Off</td><td>No gating.</td></tr>
+            <tr><td>Light (10%)</td><td>Gentle - barely noticeable.</td></tr>
+            <tr><td>Medium (20%)</td><td>Moderate - good for most setups.</td></tr>
+            <tr><td>Strong (35%)</td><td>Aggressive - for noisy environments.</td></tr>
+          </tbody>
+        </table>
+
+        <h3 id="settings-enable-amp-nam-noise-reduction">Enable amp NAM noise reduction <a class="anchor-link" href="#settings-enable-amp-nam-noise-reduction">#</a></h3>
+        <p>A gentle noise reducer placed after the amp NAM stage. Unlike a hard gate, this smoothly fades down the noise floor while preserving natural note decay. It works best in combination with the input gate.</p>
+
+        <h3 id="settings-amp-noise-reduction-threshold">Amp noise reduction threshold <a class="anchor-link" href="#settings-amp-noise-reduction-threshold">#</a></h3>
+        <p>Controls how sensitive the noise reduction is. Lower values such as <code>-60 dB</code> only reduce the quietest noise; higher values such as <code>-30 dB</code> are more aggressive. Available options are <code>-30</code>, <code>-35</code>, <code>-40</code>, <code>-45</code>, <code>-50</code>, <code>-55</code>, and <code>-60 dB</code>. Default is <code>-50 dB</code>.</p>
+
+        <h3 id="settings-audio-midi-setup-is-under-options">Audio/MIDI setup is under Options <a class="anchor-link" href="#settings-audio-midi-setup-is-under-options">#</a></h3>
+        <p>A reminder that audio device and MIDI settings are found under the <code>Options</code> button at the top-left of the window, not in this menu.</p>
+
+        <h3 id="settings-reset-user-scenes-to-defaults">Reset user scenes to defaults <a class="anchor-link" href="#settings-reset-user-scenes-to-defaults">#</a></h3>
+        <p>Clears all your saved user scenes. Factory scenes are not affected.</p>
+      </section>
+
+      <section class="manual-section" id="models-cabs">
+        <div class="section-heading">
+          <h2>Models and Cabs</h2>
+          <a class="anchor-link" href="#models-cabs">#</a>
+        </div>
+
+        <h3 id="nam-models">NAM models <a class="anchor-link" href="#nam-models">#</a></h3>
+        <p>A NAM (Neural Amp Model) is a captured amp tone. Load one with <code>Load NAM</code> or browse <code>Tone3000</code>.</p>
+        <p><strong>Amp-only models</strong> capture just the amp, so they sound unfinished and direct on their own. Pair them with a cab stage, either <code>IR</code> or <code>NAM</code>, for the speaker sound.</p>
+        <p><strong>Full-rig models</strong> capture the amp, cab, and mic together, so they sound complete without a separate cab stage.</p>
+        <p>If your model already sounds good without a cab, it is probably full-rig. If it sounds thin or fizzy, try loading a cab.</p>
+
+        <h3 id="ir-cabs-impulse-responses">IR cabs (Impulse Responses) <a class="anchor-link" href="#ir-cabs-impulse-responses">#</a></h3>
+        <p>An IR captures the sound of a speaker cabinet and microphone. Choose <code>Cab Type = IR</code>, then press <code>Load Cab</code>. The app supports <code>.wav</code>, <code>.aif</code>, and <code>.aiff</code> files.</p>
+        <p>When no custom IR is loaded in <code>IR</code> mode, the app can use the built-in default cab simulation.</p>
+
+        <h3 id="nam-cabs">NAM cabs <a class="anchor-link" href="#nam-cabs">#</a></h3>
+        <p>A NAM cab is a dynamic NAM capture used in the cab stage instead of an IR. Choose <code>Cab Type = NAM</code>, then press <code>Load Cab</code> and select a <code>.nam</code> file.</p>
+        <p>Good NAM cab captures now load and restore like IRs:</p>
+        <ul>
+          <li>They stay loaded when you switch away from <code>NAM</code> and back.</li>
+          <li>They are restored on relaunch.</li>
+          <li>The <code>CAB</code> knob controls loudness, just like it does for IR mode.</li>
+        </ul>
+        <div class="mini-callout">
+          <strong>Important:</strong> A cab NAM should be an actual speaker or cab capture, not an amp profile. If a file sounds wildly distorted, screechy, or unstable in the cab slot, double-check that it is really a cab NAM and not an amp NAM.
+        </div>
+
+        <h3 id="tone3000">Tone3000 <a class="anchor-link" href="#tone3000">#</a></h3>
+        <p>Tone3000 is an online library of NAM models. Use it to search, browse featured tones, and download models directly into the app. You can connect your Tone3000 account for access to your own collection.</p>
+        <p>If you prefer local files only, you can ignore Tone3000 entirely and just use <code>Load NAM</code>.</p>
+      </section>
+
+      <section class="manual-section" id="tuner">
+        <div class="section-heading">
+          <h2>Tuner</h2>
+          <a class="anchor-link" href="#tuner">#</a>
+        </div>
+        <p>Press <code>TUNER</code> in the header to show the on-screen tuner. The tuner mutes your output while active so you can tune silently.</p>
+        <p>The tuner displays:</p>
+        <ul>
+          <li>The detected note name</li>
+          <li>How many cents sharp or flat you are, where center means in tune</li>
+          <li>A confidence indicator showing how locked the reading is</li>
+        </ul>
+        <p>Press <code>TUNER</code> again to hide the tuner and resume normal playing.</p>
+      </section>
+
+      <section class="manual-section" id="stereo-and-phones">
+        <div class="section-heading">
+          <h2>Stereo and Phones</h2>
+          <a class="anchor-link" href="#stereo-and-phones">#</a>
+        </div>
+
+        <h3 id="stereo">Stereo <a class="anchor-link" href="#stereo">#</a></h3>
+        <p>Press <code>STEREO</code> to enable stereo widening. This adds a subtle doubling effect that spreads your tone across the stereo field, which is great for recording or playing through a stereo setup. When off, the output is dual-mono.</p>
+
+        <h3 id="phones">Phones <a class="anchor-link" href="#phones">#</a></h3>
+        <p>Press <code>PHONES</code> when listening through headphones. This mode:</p>
+        <ul>
+          <li>Adds a gentle crossfeed between left and right channels so the sound feels more natural in your ears.</li>
+          <li>Softens the high end slightly to reduce headphone harshness.</li>
+          <li>Trims a touch of low-mid boxiness.</li>
+        </ul>
+        <p>Turn it off when playing through monitors or an FRFR speaker.</p>
+      </section>
+
+      <section class="manual-section" id="startup-behavior">
+        <div class="section-heading">
+          <h2>Startup Behavior</h2>
+          <a class="anchor-link" href="#startup-behavior">#</a>
+        </div>
+        <ul>
+          <li><strong>First launch</strong> - loads the bundled Foundation Clean model and scene, and shows the Quick Start banner.</li>
+          <li><strong>After that</strong> - your last-used model, cab selection, and scene are automatically restored.</li>
+          <li><strong>Clear All</strong> - returns the app to the first-launch state with Foundation Clean and the default cab flow.</li>
+        </ul>
+      </section>
+
+      <section class="manual-section" id="troubleshooting">
+        <div class="section-heading">
+          <h2>Troubleshooting</h2>
+          <a class="anchor-link" href="#troubleshooting">#</a>
+        </div>
+
+        <h3 id="troubleshooting-the-app-sounds-too-quiet">The app sounds too quiet <a class="anchor-link" href="#troubleshooting-the-app-sounds-too-quiet">#</a></h3>
+        <p>Check in order:</p>
+        <ol>
+          <li>Is amp auto-level enabled? Settings gear -&gt; Enable amp auto-level.</li>
+          <li>Check the <code>OUT</code> knob. It may be turned down.</li>
+          <li>The scene's <code>TRIM</code> knob may be set low.</li>
+          <li>If you loaded an amp-only NAM without a cab, the sound can be thin and quiet, so try loading a cab.</li>
+        </ol>
+
+        <h3 id="troubleshooting-the-app-sounds-harsh">The app sounds harsh <a class="anchor-link" href="#troubleshooting-the-app-sounds-harsh">#</a></h3>
+        <p>Try:</p>
+        <ul>
+          <li>Lower the <code>IN</code> knob. You may be hitting the model too hard.</li>
+          <li>Turn down drive pedal levels.</li>
+          <li>Reduce the <code>4.8k</code> EQ band.</li>
+          <li>Use less <code>Bright</code>.</li>
+          <li>Turn on <code>PHONES</code> mode if you are on headphones.</li>
+        </ul>
+
+        <h3 id="troubleshooting-one-scene-is-louder-than-another">One scene is louder than another <a class="anchor-link" href="#troubleshooting-one-scene-is-louder-than-another">#</a></h3>
+        <p>Use the Match workflow:</p>
+        <ol>
+          <li>Select the reference scene and press <strong>Set Ref</strong>, then play.</li>
+          <li>Switch to the other scene and press <strong>Apply</strong>, then play.</li>
+          <li>Press <strong>Save</strong> to commit the offset.</li>
+        </ol>
+        <p>Or simply adjust the <code>TRIM</code> knob on the louder scene.</p>
+
+        <h3 id="troubleshooting-clean-tones-feel-stiff-or-lifeless">Clean tones feel stiff or lifeless <a class="anchor-link" href="#troubleshooting-clean-tones-feel-stiff-or-lifeless">#</a></h3>
+        <p>Try:</p>
+        <ul>
+          <li>Turn on <code>Comp</code> with moderate Blend.</li>
+          <li>Add a little <code>Boost</code>.</li>
+          <li>Turn up <code>Sweeten</code> for some warmth.</li>
+          <li>Bump the <code>425 Hz</code> EQ band up a touch.</li>
+        </ul>
+
+        <h3 id="troubleshooting-theres-noise-or-hum-when-im-not-playing">There is noise or hum when you are not playing <a class="anchor-link" href="#troubleshooting-theres-noise-or-hum-when-im-not-playing">#</a></h3>
+        <ul>
+          <li>Enable the <strong>Input gate</strong> in settings and start with Light or Medium.</li>
+          <li>Enable <strong>amp NAM noise reduction</strong> for additional cleanup.</li>
+          <li>Check your guitar cable and interface gain.</li>
+        </ul>
+
+        <h3 id="troubleshooting-full-rig-model-or-amp-only-model">Full-rig model or amp-only model? <a class="anchor-link" href="#troubleshooting-full-rig-model-or-amp-only-model">#</a></h3>
+        <p>If the NAM sounds complete and natural on its own, it is likely a full-rig capture and does not need a cab. If it sounds thin, fizzy, or direct, it probably wants a cab.</p>
+
+        <div class="manual-footer-links">
+          <a class="btn btn-secondary" href="#quick-start">Back to top</a>
+          <a class="btn btn-secondary" href="support.html">Need more help?</a>
+        </div>
+      </section>
     </article>
   </main>
 
   <footer class="footer">
     <div class="wrap">
-      <div>© macgenius</div>
+      <div>&copy; macgenius</div>
       <div class="footer-links">
         <a href="index.html">Home</a>
         <a href="support.html">Support</a>
