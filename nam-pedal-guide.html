@@ -207,7 +207,8 @@
         <li><a href="#models-cabs">Models and Cabs<span>Amp-only vs full-rig, IRs, cab NAMs.</span></a></li>
         <li><a href="#tone3000">Tone3000<span>Login, search, featured models, saved access.</span></a></li>
         <li><a href="#tuner">Tuner<span>Silent tuning workflow.</span></a></li>
-        <li><a href="#stereo-and-phones">Stereo and Phones<span>Width and headphone mode.</span></a></li>
+        <li><a href="#wow">WOW<span>Width, warmth, and tilt voicing.</span></a></li>
+        <li><a href="#phones">Phones<span>Headphone listening mode.</span></a></li>
         <li><a href="#startup-behavior">Startup Behavior<span>What loads and restores.</span></a></li>
         <li><a href="#troubleshooting">Troubleshooting<span>Common fixes and tone tips.</span></a></li>
       </ul>
@@ -301,7 +302,7 @@
           </thead>
           <tbody>
             <tr><td><code>TUNER</code></td><td>Show or hide the on-screen tuner. Output is muted while active.</td></tr>
-            <tr><td><code>STEREO</code></td><td>Enable stereo widening for a bigger, more spacious sound.</td></tr>
+            <tr><td><code>WOW</code></td><td>Master voicing stage with width, warmth, and tilt EQ. Click the left half (the W icon) to toggle WOW on or off; click the right half (the word <code>wow</code>) to open the WOW control panel. See <a href="#wow">WOW</a>.</td></tr>
             <tr><td><code>PHONES</code></td><td>Headphone mode for headphone listening instead of monitors or an FRFR speaker.</td></tr>
           </tbody>
         </table>
@@ -348,6 +349,7 @@
           <li>Delay and chorus settings</li>
           <li>Drive order</li>
           <li>Voicing: Sweeten, Deep, Bright</li>
+          <li>WOW settings: Mode, Character, Mix, Width, Warmth, Warmth Voice, and Tilt</li>
           <li>Persistent scene output level (<code>TRIM</code>)</li>
         </ul>
 
@@ -652,6 +654,14 @@
 
         <h3 id="tone3000">Tone3000 <a class="anchor-link" href="#tone3000">#</a></h3>
         <p>Tone3000 is an online library of NAM models. Use it to search, browse featured tones, and download models directly into the app. You can connect your Tone3000 account for access to your own collection.</p>
+
+        <h4 id="tone3000-a2">A2 (Architecture 2) models <a class="anchor-link" href="#tone3000-a2">#</a></h4>
+        <p>NAM Pedalboard supports the latest <strong>A2</strong> (Architecture 2) NAM models in addition to the original A1 captures. A2 models generally feel more dynamic and capture amp behavior more accurately.</p>
+        <ul>
+          <li>When browsing Tone3000, the app prefers <strong>A2</strong> amp NAMs and A2 cab NAMs by default.</li>
+          <li>The architecture tag (<code>A1</code> or <code>A2</code>) is shown in each model's variant label so you can see which architecture you are about to download.</li>
+          <li>Local <code>.nam</code> files of either architecture load normally through <code>Load NAM</code>.</li>
+        </ul>
         <p><strong>First-time login</strong></p>
         <ol>
           <li>Press <code>Tone3000</code>.</li>
@@ -691,16 +701,60 @@
         <p>Press <code>TUNER</code> again to hide the tuner and resume normal playing.</p>
       </section>
 
-      <section class="manual-section" id="stereo-and-phones">
+      <section class="manual-section" id="wow">
         <div class="section-heading">
-          <h2>Stereo and Phones</h2>
-          <a class="anchor-link" href="#stereo-and-phones">#</a>
+          <h2>WOW</h2>
+          <a class="anchor-link" href="#wow">#</a>
         </div>
+        <p>WOW is the final voicing stage. It handles stereo width and adds tone-shaping warmth and tilt on top of your amp, cab, EQ, and effects. It replaces the old fixed <code>STEREO</code> utility - when WOW is on, the output is stereo; when off, the output is dual-mono.</p>
 
-        <h3 id="stereo">Stereo <a class="anchor-link" href="#stereo">#</a></h3>
-        <p>Press <code>STEREO</code> to enable stereo widening. This adds a subtle doubling effect that spreads your tone across the stereo field, which is great for recording or playing through a stereo setup. When off, the output is dual-mono.</p>
+        <h3 id="wow-from-the-footer">Opening WOW from the footer <a class="anchor-link" href="#wow-from-the-footer">#</a></h3>
+        <p>The <code>WOW</code> pill sits in the middle of the footer utility strip, between <code>TUNER</code> and <code>PHONES</code>. It has two click zones:</p>
+        <ul>
+          <li><strong>Left half (the W icon)</strong> - toggles WOW on or off. When it turns off, the app remembers the last active mode so the next click restores it.</li>
+          <li><strong>Right half (the word <code>wow</code>)</strong> - opens the WOW control panel as a centered overlay.</li>
+        </ul>
+        <p>The icon brightness reflects the current state: dim when off, soft when in <strong>EQ + Warmth</strong>, and full color in <strong>Full WOW</strong>.</p>
 
-        <h3 id="phones">Phones <a class="anchor-link" href="#phones">#</a></h3>
+        <h3 id="wow-mode">Mode <a class="anchor-link" href="#wow-mode">#</a></h3>
+        <table>
+          <thead><tr><th>Mode</th><th>Character</th></tr></thead>
+          <tbody>
+            <tr><td>Off</td><td>WOW bypassed. Output is dual-mono.</td></tr>
+            <tr><td>EQ + Warmth</td><td>Applies the tilt EQ and warmth voicing only - no widening. Use this when you want WOW's tonal polish but a mono signal.</td></tr>
+            <tr><td>Full WOW</td><td>Applies tilt, warmth, and stereo widening. The default for stereo monitoring or recording.</td></tr>
+          </tbody>
+        </table>
+
+        <h3 id="wow-character">Character <a class="anchor-link" href="#wow-character">#</a></h3>
+        <table>
+          <thead><tr><th>Character</th><th>Use it for</th></tr></thead>
+          <tbody>
+            <tr><td>Sweeten</td><td>Smooth, polished widening - the default. Sits naturally on most tones.</td></tr>
+            <tr><td>Amp Room</td><td>Adds a sense of space and depth, like the amp is in a small room.</td></tr>
+            <tr><td>Double Track</td><td>Bigger, more dramatic stereo image - feels like a doubled guitar in a mix.</td></tr>
+          </tbody>
+        </table>
+
+        <h3 id="wow-controls">Controls <a class="anchor-link" href="#wow-controls">#</a></h3>
+        <table>
+          <thead><tr><th>Control</th><th>What it does</th></tr></thead>
+          <tbody>
+            <tr><td>Mix</td><td>Wet/dry blend of the WOW stage. Lower is more transparent; higher commits to the effect.</td></tr>
+            <tr><td>Width</td><td>How wide the stereo image spreads. Only audible in <strong>Full WOW</strong>.</td></tr>
+            <tr><td>Warmth</td><td>Adds low-end body and weight (true-bass enhancement).</td></tr>
+            <tr><td>Warmth Voice</td><td>Sets where the warmth lives: <code>80 Hz</code>, <code>120 Hz</code>, or <code>170 Hz</code>.</td></tr>
+            <tr><td>Tilt</td><td>A broad tilt EQ between -50 and +50. Negative values darken (more lows, less highs); positive values brighten (more highs, less lows); 0 is flat.</td></tr>
+          </tbody>
+        </table>
+        <p>WOW settings are stored per scene, so each scene can have its own width and voicing.</p>
+      </section>
+
+      <section class="manual-section" id="phones">
+        <div class="section-heading">
+          <h2>Phones</h2>
+          <a class="anchor-link" href="#phones">#</a>
+        </div>
         <p>Press <code>PHONES</code> when listening through headphones. This mode:</p>
         <ul>
           <li>Adds a gentle crossfeed between left and right channels so the sound feels more natural in your ears.</li>
